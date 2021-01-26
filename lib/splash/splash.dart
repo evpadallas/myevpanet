@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myevpanet/splash/bloc/splash_bloc.dart';
 import 'package:myevpanet/splash/view/splash_screen.dart';
 
-import 'cubit/splash_cubit.dart';
+//import 'cubit/splash_cubit.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key key}) : super(key: key);
@@ -10,7 +11,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SplashCubit(),
+      create: (_) => SplashBloc(),
       child: SplashScreen(),
     );
   }
