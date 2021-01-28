@@ -12,7 +12,7 @@ class FileStorage {
     return File('$path/guids.json');
   }
 
-  Future<String> readCounter() async {
+  Future<String> readFile() async {
     final file = await _localFile;
     // Read the file
     String contents = await file.readAsString();

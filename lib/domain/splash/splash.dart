@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:myevpanet/ui/screens/home_screen.dart';
 import 'package:myevpanet/ui/screens/login_screen.dart';
-import 'package:myevpanet/domain/splash/blocs/splash_bloc.dart';
+import 'package:myevpanet/domain/splash/bloc/splash_bloc.dart';
 //import 'package:myevpanet/splash/view/splash_screen.dart';
 
 class SplashPage extends StatelessWidget {
