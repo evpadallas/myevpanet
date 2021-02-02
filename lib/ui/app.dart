@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'domain/splash/splash.dart';
+import 'screens/splash/splash.dart';
 
 /// {@template counter_app}
 /// A [MaterialApp] which sets the `home` to [CounterPage].

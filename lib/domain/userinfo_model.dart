@@ -4,12 +4,12 @@
 
 import 'dart:convert';
 
-UserInfo userInfoFromJson(String str) => UserInfo.fromJson(json.decode(str));
+UserInfoResponse userInfoFromJson(String str) => UserInfoResponse.fromJson(json.decode(str));
 
-String userInfoToJson(UserInfo data) => json.encode(data.toJson());
+String userInfoToJson(UserInfoResponse data) => json.encode(data.toJson());
 
-class UserInfo {
-  UserInfo({
+class UserInfoResponse {
+  UserInfoResponse({
     this.error,
     this.message,
   });
@@ -17,7 +17,7 @@ class UserInfo {
   bool error;
   Message message;
 
-  factory UserInfo.fromJson(Map<String, dynamic> json) => UserInfo(
+  factory UserInfoResponse.fromJson(Map<String, dynamic> json) => UserInfoResponse(
         error: json["error"],
         message: Message.fromJson(json["message"]),
       );
@@ -33,10 +33,10 @@ class Message {
     this.userinfo,
   });
 
-  Userinfo userinfo;
+  UserInfo userinfo;
 
   factory Message.fromJson(Map<String, dynamic> json) => Message(
-        userinfo: Userinfo.fromJson(json["userinfo"]),
+        userinfo: UserInfo.fromJson(json["userinfo"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -44,8 +44,8 @@ class Message {
       };
 }
 
-class Userinfo {
-  Userinfo({
+class UserInfo {
+  UserInfo({
     this.id,
     this.date,
     this.dateChanged,
@@ -269,7 +269,7 @@ class Userinfo {
   bool ripneedpay;
   List<AllowedTarif> allowedTarifs;
 
-  factory Userinfo.fromJson(Map<String, dynamic> json) => Userinfo(
+  factory UserInfo.fromJson(Map<String, dynamic> json) => UserInfo(
         id: json["id"],
         date: DateTime.parse(json["date"]),
         dateChanged: DateTime.parse(json["date_changed"]),
