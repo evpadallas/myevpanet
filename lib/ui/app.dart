@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'screens/splash/splash.dart';
 
@@ -7,5 +8,9 @@ import 'screens/splash/splash.dart';
 /// {@endtemplate}
 class MyEvpaNetApp extends MaterialApp {
   /// {@macro counter_app}
-  const MyEvpaNetApp({Key key}) : super(key: key, home: const SplashPage());
+  const MyEvpaNetApp({Key key})
+      : super(
+          key: key,
+          home:  const SplashPage(),
+        );
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:myevpanet/data/bloc/splash_bloc.dart';
+import 'package:myevpanet/data/bloc/splash/splash_bloc.dart';
+import 'package:myevpanet/data/repositories/guids_repository.dart';
+import 'package:myevpanet/data/storage/guids_storage.dart';
 import 'package:myevpanet/ui/screens/home/home_screen.dart';
 import 'package:myevpanet/ui/screens/auth/login_screen.dart';
 
@@ -10,7 +12,11 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => SplashBloc(),
+      create: (_) => SplashBloc(
+        GuidsRepository(
+          GuidsStorage(),
+        ),
+      )..add(CheckAuthorization()),
       child: BlocListener<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is SplashSuccessState) {
@@ -31,6 +37,11 @@ class SplashPage extends StatelessWidget {
 
           return SplashInitialState();
         },
+        child: Center(
+          child: Text(
+            'Какая-то сплэш страница',
+          ),
+        ),
       ),
     );
   }
