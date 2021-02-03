@@ -5,6 +5,7 @@ import 'package:myevpanet/data/repositories/guids_repository.dart';
 import 'package:myevpanet/data/storage/guids_storage.dart';
 import 'package:myevpanet/ui/screens/home/home_screen.dart';
 import 'package:myevpanet/ui/screens/auth/login_screen.dart';
+import 'package:myevpanet/ui/screens/splash/splash_screen.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key key}) : super(key: key);
@@ -16,7 +17,9 @@ class SplashPage extends StatelessWidget {
         GuidsRepository(
           GuidsStorage(),
         ),
-      )..add(CheckAuthorization()),
+      )..add(
+          CheckAuthorization(),
+        ),
       child: BlocListener<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state is SplashSuccessState) {
@@ -37,11 +40,7 @@ class SplashPage extends StatelessWidget {
 
           return SplashInitialState();
         },
-        child: Center(
-          child: Text(
-            'Какая-то сплэш страница',
-          ),
-        ),
+        child: SplashScreen(),
       ),
     );
   }

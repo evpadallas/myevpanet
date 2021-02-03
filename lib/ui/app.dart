@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'screens/splash/splash.dart';
+import '../data/bloc/splash.dart';
 
 /// {@template counter_app}
 /// A [MaterialApp] which sets the `home` to [CounterPage].
@@ -11,6 +9,6 @@ class MyEvpaNetApp extends MaterialApp {
   const MyEvpaNetApp({Key key})
       : super(
           key: key,
-          home:  const SplashPage(),
+          home: const SplashPage(),
         );
 }
