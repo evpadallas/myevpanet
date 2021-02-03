@@ -13,7 +13,7 @@ class SplashInitialState extends SplashState {}
 
 // Проверки пройдены, абонент залогинен (присутствует файл с GUIDS и он не пуст) Необходимо тут получить согласно гуидам информацию.
 class SplashSuccessState extends SplashState {
-  final List<Login> guids;
+  final List<String> guids;
 
   const SplashSuccessState({this.guids});
 }

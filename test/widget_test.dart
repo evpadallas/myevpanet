@@ -7,7 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:myevpanet/app.dart';
+import 'package:myevpanet/ui/app.dart';
 
 //import 'package:myevpanet/main.dart';
 
