@@ -15,11 +15,13 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   @override
   Stream<SplashState> mapEventToState(SplashEvent event) async* {
     if (event is CheckAuthorization) {
-      var guids = repo.getGUIDS();
+      var guids = await repo.getGUIDS();
 
-      await Future.delayed(Duration(seconds: 10));
+      await Future.delayed(
+        Duration(seconds: 10),
+      );
 
-      if (guids.isEmpty) {
+      if (guids?.isEmpty ?? true) {
         yield SplashFailureState();
       } else {
         yield SplashSuccessState(guids: guids);
