@@ -10,7 +10,10 @@ part 'splash_state.dart';
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
   final GuidsRepository repo;
 
-  SplashBloc(this.repo) : super(SplashInitialState());
+  SplashBloc(this.repo)
+      : super(
+          SplashInitialState(),
+        );
 
   @override
   Stream<SplashState> mapEventToState(SplashEvent event) async* {
@@ -18,13 +21,22 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       var guids = await repo.getGUIDS();
 
       await Future.delayed(
-        Duration(seconds: 10),
+        Duration(
+          seconds: 5,
+        ),
       );
+
+      // List<String> guids = [];
+
+      // guids.add("42");
+      // guids.add("2018");
 
       if (guids?.isEmpty ?? true) {
         yield SplashFailureState();
       } else {
-        yield SplashSuccessState(guids: guids);
+        yield SplashSuccessState(
+          guids: guids,
+        );
       }
     }
   }
