@@ -7,7 +7,8 @@
         {
             "name": "myevpanet",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "flutterMode": "debug"
         }
     ]
 }

@@ -1,13 +1,17 @@
+import 'package:hive/hive.dart';
+
 /// Storage for guids
 class GuidsStorage {
-
- int counter = 0;
- 
-  void putInfo(List<String> info) {
-    // based on Hive
+  void putGUIDS(List<String> guids) async {
+    var box = await Hive.openBox('GUIDS');
+    await box.put('guids', guids);
+    await box.close();
   }
 
-  List<String> getInfo() {
-    return [];
+  Future<List<String>> getGUIDS() async {
+    var box = await Hive.openBox('GUIDS');
+    List<String> guids = box.get('guids');
+    await box.close();
+    return guids;
   }
 }

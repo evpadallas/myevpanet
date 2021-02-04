@@ -3,17 +3,15 @@ import 'package:myevpanet/domain/login_model.dart';
 
 /// Repo for guids
 class GuidsRepository {
-
   final GuidsStorage storage;
 
   GuidsRepository(this.storage);
 
-  void putInfo(Message mes) {
-    storage.putInfo(mes.guids);
+  void putGUIDS(Message mes) {
+    storage.putGUIDS(mes.guids);
   }
 
-  List<String> getInfo() {
-    // + щзапрос на сервер
-    return storage.getInfo();
+  Future<List<String>> getGUIDS() {
+    return storage.getGUIDS();
   }
 }

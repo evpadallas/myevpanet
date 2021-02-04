@@ -3,10 +3,17 @@ import 'package:flutter/material.dart';
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          'Какая-то сплэш страница',
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image(
+                image: AssetImage('assets/images/logo.png'),
+              ),
+            ],
+          ),
         ),
       ),
     );
