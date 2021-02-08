@@ -13,5 +13,7 @@ void main() async {
   Bloc.observer = MyEvpaNetObserver();
 
   /// запускаем приложение
-  runApp(const MyEvpaNetApp());
+  runApp(
+    MyEvpaNetApp(),
+  );
 }

@@ -26,10 +26,7 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
         ),
       );
 
-      // List<String> guids = [];
-
-      // guids.add("42");
-      // guids.add("2018");
+      //List<String> guids = ["as","as","as"];
 
       if (guids?.isEmpty ?? true) {
         yield SplashFailureState();

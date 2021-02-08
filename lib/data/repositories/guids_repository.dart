@@ -1,9 +1,9 @@
-import 'package:myevpanet/data/storage/guids_storage.dart';
+import 'package:myevpanet/data/storage/hive_storage.dart';
 import 'package:myevpanet/domain/login_model.dart';
 
 /// Repo for guids
 class GuidsRepository {
-  final GuidsStorage storage;
+  final HiveStorage storage;
 
   GuidsRepository(this.storage);
 
