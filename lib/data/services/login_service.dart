@@ -1,31 +1,11 @@
 import 'package:dio/dio.dart';
+import 'package:myevpanet/data/services/api_base.dart';
 import 'package:myevpanet/domain/login_model.dart';
 
-/*
-* Основной адрес нового API: https://evpanet.com/api/apk/
-*/
+class LoginService extends APIBase {
+  LoginService(Dio dio) : super(dio);
 
-const String _baseURL = 'https://evpanet.com/api/apk';
-
-/// TODO Сделать получение токена. Он необходим для криптования/раскриптования guid
-///
-const Map _authToken = {'token': 'asdfasfd'};
-
-class APIService {
-  final Dio _dio;
-
-  factory APIService() {
-    final Dio dio = Dio(
-      BaseOptions(
-        baseUrl: _baseURL,
-        headers: _authToken,
-      ),
-    );
-
-    return APIService._(dio);
-  }
-
-  APIService._(this._dio);
+  get _dio => LoginService(_dio);
 
 /*
 * Авторизация:
@@ -43,16 +23,21 @@ class APIService {
 * ***************************************************************
 */
 
-  Future postUserLogin() async {
-    final Response response = await _dio.post('/login/user');
-
+  Future<List<String>> postUserLogin() async {
+    List<String> _guids;
     try {
-      if (Login(error: response.data['error']) == true) {
-        return Login(message: Message.fromJson(response.data));
+      Response response = await _dio.post('/login/user');
+
+      Login baseAnswer = Login.fromJson(response.data);
+
+      if (baseAnswer.error == false) {
+        _guids = Message.fromJson(response.data['message']) as List<String>;
       }
-    } catch (e) {
-      return Login(error: response.data['message']);
+    } catch (error) {
+      print(error);
     }
+
+    return _guids;
   }
 }
 
